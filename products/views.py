@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import ProductCategory, Product
 import datetime
 
 def main(request):
@@ -9,31 +10,9 @@ def main(request):
     return render(request, 'products/index.html', data)
 
 
-def products(request):
-    data = {
-        'slider': [
-            {'img':'img/controll.jpg'},
-            {'img':'img/controll1.jpg'},
-            {'img':'img/controll2.jpg'},
-        ],
-        'goods':[
-        {
-            'title': "стул повышенного качества",
-            'text': "не оторваться",
-            'img': "img/product-11.jpg"
-        },
-        {
-            'title': "стул повышенного качества",
-            'text': "не оторваться",
-            'img': "img/product-21.jpg"
-        },
-        {
-            'title': "стул повышенного качества",
-            'text': "не оторваться",
-            'img': "img/product-31.jpg"
-        },
-
-    ]}
+def products(request): 
+    product = Product.objects.all()
+    data = {'title': 'products', 'product': product}
     return render(request, 'products/products.html', data)
 
 
