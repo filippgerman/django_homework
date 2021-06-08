@@ -1,7 +1,7 @@
 {% extends "products/layout.html" %}
 {% load static %}
 
-{% block title %}Каталог{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% block link %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 {% endblock %}
@@ -71,13 +71,13 @@
 	  </div>
 	  <div class="related-products clearfix">
 
-		{% for item in goods %}
+		{% for item in product %}
 		<div class="block">
-		  <a href="#"><img src="{%static item.img %}" alt="">
+		  <a href="#"><img src="/media/{{item.image }}" alt="">
 			<div class="text">
-			  <img src="{%static 'img/icon-hover.png'%}" alt="img">
-			  <h4>{{ item.title|title }}</h4>
-			  <p> {{ item.text|title }}</p>
+			  <img src=" {% static 'img/icon-hover.png'%}" alt="img">
+			  <h4>{{ item.name|title }}</h4>
+			  <p> {{ item.short_desc|title }}</p>
 			</div>
 		  </a>
 		</div>
