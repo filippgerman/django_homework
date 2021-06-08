@@ -2,6 +2,7 @@
 \#**\#
 *~
 
+/media
 /venv
 **/__pycache__
 .idea
