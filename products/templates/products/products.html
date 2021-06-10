@@ -1,4 +1,4 @@
-{% extends "products/layout.html" %}
+{% extends 'products/layout.html' %}
 {% load static %}
 
 {% block title %}{{ title }}{% endblock %}
@@ -9,11 +9,11 @@
 <div class="container">
   <div class="hero-white">
 	<div class="header clearfix">
-	  <a href="{% url 'index' %}" class="logo"></a>
+	  <a href="{% url 'main:index' %}" class="logo"></a>
 	  <ul class="menu">
-		<li><a href="{% url 'index' %}" class="active">домой</a></li>
-		<li><a href="{% url 'products' %}">продукты</a></li>
-		<li><a href="{% url 'contact' %}">контакты</a></li>
+		<li><a href="{% url 'main:index' %}" class="active">домой</a></li>
+		<li><a href="{% url 'main:products' %}">продукты</a></li>
+		<li><a href="{% url 'main:contact' %}">контакты</a></li>
 	  </ul>
 	  <a href="#" class="search"></a>
       <a href="#" class="basket"></a>
@@ -65,7 +65,7 @@
 	  </div>
 	</div>
 	<div class="related">
-	  <div class="title clearfix">
+iii	  <div class="title clearfix">
 		<h2>Похожие продукты</h2>
 		<a class="explore" href="#">показать все <img src="{%static 'img/arrow.png'%}" alt=""></a>
 	  </div>
@@ -86,9 +86,7 @@
 	</div>
   </div>
   <div class="clr"></div>
-
 </div>	
-
 <div class="footer">
   <div class="clearfix">
     <div class="text-footer">

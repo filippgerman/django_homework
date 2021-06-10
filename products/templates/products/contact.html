@@ -1,3 +1,4 @@
+{% extends 'products/layout.html' %}
 {% load static %}
 {% block title %}Контакты{% endblock %}
 {% block link %}
@@ -10,9 +11,9 @@
 	<div class="header clearfix">
 	  <a href="index.html" class="logo"></a>
 	  <ul class="menu">
-		<li><a href="{% url 'index' %}" class="active">домой</a></li>
-		<li><a href="{% url 'products' %}">продукты</a></li>
-		<li><a href="{% url 'contact' %}">контакты</a></li>
+		<li><a href="{% url 'main:index' %}" class="active">домой</a></li>
+		<li><a href="{% url 'main:products' %}">продукты</a></li>
+		<li><a href="{% url 'main:contact' %}">контакты</a></li>
 	  </ul>
 	  <a href="#" class="search"></a>
       <a href="#" class="basket"></a>
