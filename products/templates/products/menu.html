@@ -1,0 +1,12 @@
+{% load static %}
+<div class="header clearfix">
+  <ion-icon  name = "enter-outline" > </ion-icon >
+  <a href="{% url 'main:index' %}" class="logo"></a>
+  <ul class="menu">
+	<li><a href="{% url 'main:index' %}">домой</a></li>
+	<li><a href="{% url 'main:products' %}">продукты</a></li>
+	<li><a href="{% url 'main:contact' %}">контакты</a></li>
+	<li><a href="{% url 'authapp:profile' %}">Профиль</a></li>
+  </ul>
+  <a href="#" class="search"></a>
+</div>

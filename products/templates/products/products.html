@@ -2,22 +2,10 @@
 {% load static %}
 
 {% block title %}{{ title }}{% endblock %}
-{% block link %}
-<link rel="stylesheet" href="{% static 'style.css' %}">
-{% endblock %}
 {% block content %}
 <div class="container">
   <div class="hero-white">
-	<div class="header clearfix">
-	  <a href="{% url 'main:index' %}" class="logo"></a>
-	  <ul class="menu">
-		<li><a href="{% url 'main:index' %}" class="active">домой</a></li>
-		<li><a href="{% url 'main:products' %}">продукты</a></li>
-		<li><a href="{% url 'main:contact' %}">контакты</a></li>
-	  </ul>
-	  <a href="#" class="search"></a>
-      <a href="#" class="basket"></a>
-	</div>
+	{% include "products/menu.html" %}
   </div>
 
   <div class="details">
