@@ -1,8 +1,10 @@
-from django.shortcuts import render
 from django.shortcuts import render, HttpResponseRedirect
-from authapp.forms import UserLoginForm, UserRegisterForm
+from authapp.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 from django.contrib import auth, messages
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from basket.models import Basket
+
 
 def login(request):
     title = 'вход'
@@ -18,6 +20,27 @@ def login(request):
 
     content = {'title': title, 'form': form}
     return render(request, 'authapp/login.html', content)
+
+@login_required
+def profile(request):
+    user = request.user
+    if request.method == 'POST':
+        form = UserProfileForm(data=request.POST, files=request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('authapp:profile'))
+        else:
+            print(form.errors)
+    else:
+        form = UserProfileForm(instance=user)
+
+    baskets = Basket.objects.filter(user_id=request.user)
+    context = {
+        'title': 'GeekShop - Личный кабинет',
+        'form': form,
+        'baskets': baskets,
+    }
+    return render(request, 'authapp/profile.html', context)
 
 
 def register(request):
