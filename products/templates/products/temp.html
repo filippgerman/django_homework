@@ -1,9 +1,0 @@
-{% extends "products/layout.html" %}
-{% block content %}
-{% for item in good %}
-  {% for key, val in item.items %}
-<h4>{{key}} </h4>
-<h4>{{val}}</h4>
-  {% endfor %}
-{% endfor %}
-{% endblock %}

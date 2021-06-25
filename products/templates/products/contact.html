@@ -1,23 +1,10 @@
 {% extends 'products/layout.html' %}
 {% load static %}
 {% block title %}Контакты{% endblock %}
-{% block link %}
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-<link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
-{% endblock %}
 {% block content %}
 <div class="container">
   <div class="hero">
-	<div class="header clearfix">
-	  <a href="index.html" class="logo"></a>
-	  <ul class="menu">
-		<li><a href="{% url 'main:index' %}" class="active">домой</a></li>
-		<li><a href="{% url 'main:products' %}">продукты</a></li>
-		<li><a href="{% url 'main:contact' %}">контакты</a></li>
-	  </ul>
-	  <a href="#" class="search"></a>
-      <a href="#" class="basket"></a>
-	</div>
+	{% include "products/menu.html" %}
 	<h1>наши контакты</h1>
   </div>
 
